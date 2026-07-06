@@ -3,79 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SD Negeri 3 Kesiman - Denpasar</title>
+    <title>SD Negeri 3 Kesiman - Denpasar | Website Resmi</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
-        header { background-color: #0b3b66; color: white; padding: 30px 20px; text-align: center; }
-        .logo-container img { width: 100px; height: auto; margin-bottom: 15px; border-radius: 50%; background: white; padding: 5px; }
-        header h1 { margin: 5px 0; font-size: 2rem; }
-        header p { margin: 5px 0; font-size: 1rem; color: #f4d35e; font-weight: bold; }
-        nav { background-color: #f4d35e; display: flex; justify-content: center; padding: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        nav a { color: #0b3b66; text-decoration: none; margin: 0 20px; font-weight: bold; font-size: 1rem; }
-        nav a:hover { color: #000; text-decoration: underline; }
-        .container { padding: 30px 20px; max-width: 1000px; margin: auto; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 25px; border-radius: 8px; }
+        /* --- ROOT STYLE & BALINESE COLOR PALETTE --- */
+        :root {
+            --primary: #0a2540;      /* Deep Navy/Blue Resmi */
+            --accent-gold: #e5a93b; /* Emas Khas Bali */
+            --accent-red: #8b0000;  /* Merah Bata Tradisional */
+            --light-bg: #fdfbf7;    /* Putih Gading hangat */
+            --text-dark: #2d2d2d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- 1. TOP BAR (Gaya SMAN 1 Bdg) --- */
+        .top-bar {
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+        .top-bar-info span { margin-right: 15px; }
+
+        /* --- 2. MAIN HEADER --- */
+        header {
+            background: #ffffff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header-brand { display: flex; align-items: center; gap: 15px; }
+        .header-brand img { width: 75px; height: auto; }
+        .header-text h1 { margin: 0; font-size: 1.6rem; color: var(--primary); letter-spacing: 1px; }
+        .header-text p { margin: 2px 0 0 0; font-size: 0.9rem; color: #666; }
+
+        /* --- 3. NAVIGATION MENU --- */
+        nav {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            background-color: var(--accent-gold);
+            color: var(--primary);
+        }
+
+        /* --- 4. HERO BANNER UTAMA (Menggunakan image_a8003f.png) --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background: url('image_a8003f.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Efek Gelap Transparan di Atas Gambar agar Teks Terbaca */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 37, 64, 0.55);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+        }
+        .hero-content h2 {
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            border-bottom: 4px solid var(--accent-gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin: 15px 0 0 0;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            color: #f0f0f0;
+        }
+
+        /* --- 5. MAIN CONTENT AREA --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Sambutan Kepala Sekolah */
+        .welcome-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+            border-top: 5px solid var(--accent-gold);
+        }
+        @media(min-width: 768px) {
+            .welcome-section { grid-template-columns: 200px 1fr; }
+        }
+        .kepsek-box { text-align: center; }
+        .kepsek-box img {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .kepsek-box p { margin: 8px 0 0 0; font-weight: bold; font-size: 0.9rem; }
         
-        /* Bagian Sambutan & Foto Baru */
-        .welcome-section { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; margin-bottom: 40px; }
-        @media(min-width: 768px) { .welcome-section { flex-direction: row; text-align: left; } }
+        .welcome-text h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.8rem;
+            position: relative;
+        }
+        /* Garis bawah ornamen kecil */
+        .welcome-text h3::after {
+            content: ''; display: block; width: 60px; height: 3px; background: var(--accent-red); margin-top: 8px;
+        }
+
+        /* --- 6. NEWS & CULTURE GRID (Gaya SMAN 1 Bdg + Bali) --- */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px 0;
+            color: var(--primary);
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title span { color: var(--accent-gold); }
+
+        .grid-portal {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        @media(min-width: 768px) {
+            .grid-portal { grid-template-columns: repeat(3, 1fr); }
+        }
         
-        .kepsek-img { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 4px solid #0b3b66; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        
-        .grid-info { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
-        @media(min-width: 768px) { .grid-info { grid-template-columns: 1fr 1fr; } }
-        .card { background: #fdfdfd; padding: 20px; border-left: 5px solid #0b3b66; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-radius: 4px; }
-        footer { text-align: center; padding: 25px; background-color: #0b3b66; color: white; margin-top: 50px; font-size: 0.9rem; }
-        footer p { margin: 5px 0; }
+        .portal-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid var(--primary);
+        }
+        .portal-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--accent-gold);
+        }
+        .card-header-bali {
+            background: linear-gradient(135deg, var(--primary), var(--accent-red));
+            color: #ffffff;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-body { padding: 20px; }
+        .card-body ul { padding-left: 20px; margin: 0; }
+        .card-body li { margin-bottom: 10px; }
+        .card-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .card-body a:hover { color: var(--accent-red); text-decoration: underline; }
+
+        /* --- 7. FOOTER BERGAYA TRADISIONAL MODERN --- */
+        footer {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 5px solid var(--accent-gold);
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media(min-width: 768px) {
+            .footer-container { grid-template-columns: 2fr 1fr; }
+        }
+        .footer-about h4 { margin-top: 0; color: var(--accent-gold); font-size: 1.3rem; }
+        .footer-links h4 { margin-top: 0; color: var(--accent-gold); font-size: 1.3rem; }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #bbb;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="logo.jpeg" alt="Logo SD Negeri 3 Kesiman">
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>📞 (0361) XXXXXX</span>
+            <span>✉️ info@sdn3kesiman.sch.id</span>
         </div>
-        <h1>SD NEGERI 3 KESIMAN</h1>
-        <p>Mencerdaskan Anak Bangsa, Unggul, dan Berkarakter</p>
+        <div>NPSN: XXXXXXXX</div>
+    </div>
+
+    <header>
+        <div class="header-brand">
+            <img src="logo.jpeg" alt="Logo SDN 3 Kesiman">
+            <div class="header-text">
+                <h1>SD NEGERI 3 KESIMAN</h1>
+                <p>Dinas Pendidikan Kepemudaan dan Olahraga Kota Denpasar</p>
+            </div>
+        </div>
     </header>
 
     <nav>
-        <a href="#">Beranda</a>
-        <a href="#">Profil</a>
-        <a href="#">Kurikulum</a>
-        <a href="#">Kontak</a>
+        <div class="nav-container">
+            <a href="#" class="active">Beranda</a>
+            <a href="#">Profil Sekolah</a>
+            <a href="#">Kurikulum</a>
+            <a href="#">Kearifan Lokal</a>
+            <a href="#">Galeri</a>
+            <a href="#">Hubungi Kami</a>
+        </div>
     </nav>
 
-    <div class="container">
-        <div class="welcome-section">
-            <img src="image_a7fc23.png" alt="Foto Dokumentasi / Kepala Sekolah SDN 3 Kesiman" class="kepsek-img">
-            
-            <div>
-                <h2>Sambutan Kepala Satuan Pendidikan</h2>
-                <p>Selamat datang di website resmi SD Negeri 3 Kesiman, Kota Denpasar. Website ini dirancang sebagai jendela informasi bagi seluruh pemangku kepentingan sekolah.</p>
-                <p>Dengan mengacu pada peraturan perundangan yang berlaku, kami berkomitmen penuh untuk menyediakan pendidikan yang bermutu. Melalui implementasi Dokumen Kurikulum Satuan Pendidikan Terbaru, kami berharap dapat mengantarkan seluruh peserta didik menuju masa depan yang cerah, kreatif, dan berakhlak mulia.</p>
-                <p><strong>- Desak Nyoman Sari, S.Pd.SD (Kepala Sekolah)</strong></p>
-            </div>
-        </div>
-
-        <hr style="border: 0; border-top: 1px solid #eee;">
-
-        <div class="grid-info">
-            <div class="card">
-                <h3>Arah Pengajaran Terkini</h3>
-                <p>Sekolah saat ini menerapkan Kurikulum SD Negeri 3 Kesiman secara konsisten didukung penuh oleh seluruh guru, staf komite, dan <i>stakeholder</i> terkait guna mencapai visi, misi, dan tujuan sekolah yang berkelanjutan.</p>
-            </div>
-            
-            <div class="card">
-                <h3>Informasi Sekolah</h3>
-                <p>Untuk informasi seputar administrasi, kalender akademik, tata tertib, dan agenda kegiatan belajar-mengajar, silakan memantau papan pengumuman digital melalui halaman ini secara berkala.</p>
-            </div>
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Rahajeng Rawuh</h2>
+            <p>Di Website Resmi SD Negeri 3 Kesiman, Denpasar - Bali</p>
         </div>
     </div>
 
+    <div class="container">
+        
+        <div class="welcome-section">
+            <div class="kepsek-box">
+                <img src="image_a7fc23.png" alt="Desak Nyoman Sari, S.Pd.SD">
+                <p>Desak Nyoman Sari, S.Pd.SD</p>
+            </div>
+            <div class="welcome-text">
+                <h3>Sambutan Kepala Satuan Pendidikan</h3>
+                <p>Om Swastyastu,</p>
+                <p>Selamat datang di website resmi SD Negeri 3 Kesiman, Kota Denpasar. Platform digital ini kami dedikasikan sebagai jendela informasi utama, transparansi tata kelola, serta wadah komunikasi interaktif antara lingkungan sekolah, orang tua, alumni, dan masyarakat luas.</p>
+                <p>Berlandaskan nilai-nilai luhur dan komitmen menyajikan pendidikan berkualitas, kami mengimplementasikan Kurikulum Satuan Pendidikan terbaru demi mencetak generasi emas yang cerdas, berkarakter mulia, serta senantiasa menjunjung tinggi nilai budaya daerah di era modern.</p>
+                <p>Om Shanti, Shanti, Shanti, Om.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Informasi & <span>Aktivitas Sekolah</span></h2>
+        
+        <div class="grid-portal">
+            <div class="portal-card">
+                <div class="card-header-bali">📖 Kurikulum & Akademik</div>
+                <div class="card-body">
+                    <p>Penerapan Dokumen Kurikulum TA 2025/2026 secara konsisten didukung penuh oleh guru kompeten untuk mencapai visi misi pendidikan unggul.</p>
+                    <ul>
+                        <li><a href="#">- Kalender Akademik</a></li>
+                        <li><a href="#">- Struktur Organisasi Komite</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="portal-card">
+                <div class="card-header-bali">📢 Pengumuman Terbaru</div>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="#"><b>01 Jul</b> - Informasi Pengambilan Rapor</a></li>
+                        <li><a href="#"><b>15 Jun</b> - Persiapan Tahun Ajaran Baru</a></li>
+                        <li><a href="#"><b>05 Jun</b> - Agenda Rapat Kerja Komite</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="portal-card">
+                <div class="card-header-bali">🌸 Penguatan Seni & Budaya</div>
+                <div class="card-body">
+                    <p>Integrasi kearifan lokal Bali dalam kegiatan penunjang akademik untuk melestarikan tradisi luhur sejak dini.</p>
+                    <ul>
+                        <li><a href="#">- Ekstrakurikuler Tari Bali</a></li>
+                        <li><a href="#">- Pembelajaran Nyurat Aksara Bali</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <footer>
-        <p><strong>SD NEGERI 3 KESIMAN</strong></p>
-        <p>Jalan Bakung No. 16 Tohpati, Kesiman Kertalangu, Kec. Denpasar Timur, Kota Denpasar, Bali</p>
-        <p>&copy; 2026 SD Negeri 3 Kesiman. All Rights Reserved.</p>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h4>SD NEGERI 3 KESIMAN</h4>
+                <p>Lembaga pendidikan dasar negeri yang berkomitmen mencetak insan cerdas, religius, berbudaya, serta kompetitif di Kota Denpasar, Bali.</p>
+                <p>📍 Alamat: Jalan Bakung No. 16 Tohpati, Kesiman Kertalangu, Kec. Denpasar Timur, Kota Denpasar, Bali</p>
+            </div>
+            <div class="footer-links">
+                <h4>Tautan Cepat</h4>
+                <p><a href="#" style="color: #fff; text-decoration: none;">› Peta Lokasi Sekolah</a></p>
+                <p><a href="#" style="color: #fff; text-decoration: none;">› Kontak Admin</a></p>
+                <p><a href="#" style="color: #fff; text-decoration: none;">› Galeri Kegiatan</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SD Negeri 3 Kesiman. All Rights Reserved. | Terinspirasi Desain Portal Modern</p>
+        </div>
     </footer>
 
 </body>
