@@ -5,59 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SD Negeri 3 Kesiman - Denpasar | Website Resmi</title>
     <style>
-        /* --- ROOT STYLE & BALINESE COLOR PALETTE --- */
+        /* --- PALET WARNA PROFESIONAL & AKALAN BALI --- */
         :root {
-            --primary: #0a2540;      /* Deep Navy/Blue Resmi */
-            --accent-gold: #e5a93b; /* Emas Khas Bali */
-            --accent-red: #8b0000;  /* Merah Bata Tradisional */
-            --light-bg: #fdfbf7;    /* Putih Gading hangat */
-            --text-dark: #2d2d2d;
+            --primary: #0b2545;       /* Deep Navy ala SMAN 1 Bandung */
+            --secondary: #134074;     /* Navy Terang */
+            --bali-gold: #f4d35e;     /* Emas Khas Kain Prada Bali */
+            --bali-red: #8b0000;      /* Merah Bata Tradisional Suku Bali */
+            --bg-light: #fefcf8;      /* Putih gading hangat */
+            --text-dark: #1d2d44;
         }
 
         body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
+            background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* --- 1. TOP BAR (Gaya SMAN 1 Bdg) --- */
+        /* --- 1. TOP BAR (Info Kontak & NPSN ala SMAN 1 Bdg) --- */
         .top-bar {
             background-color: var(--primary);
             color: #ffffff;
             font-size: 0.85rem;
-            padding: 8px 20px;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--accent-gold);
+            border-bottom: 4px solid var(--bali-gold);
         }
-        .top-bar-info span { margin-right: 15px; }
+        .top-bar-info span { margin-right: 20px; }
+        .top-bar-info i { color: var(--bali-gold); margin-right: 5px; }
 
-        /* --- 2. MAIN HEADER --- */
+        /* --- 2. HEADER UTAMA & BRANDING --- */
         header {
             background: #ffffff;
             padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
         }
-        .header-brand { display: flex; align-items: center; gap: 15px; }
-        .header-brand img { width: 75px; height: auto; }
-        .header-text h1 { margin: 0; font-size: 1.6rem; color: var(--primary); letter-spacing: 1px; }
-        .header-text p { margin: 2px 0 0 0; font-size: 0.9rem; color: #666; }
+        .brand-box { display: flex; align-items: center; gap: 15px; }
+        .brand-box img { width: 80px; height: auto; }
+        .brand-text h1 { margin: 0; font-size: 1.8rem; color: var(--primary); font-weight: 700; letter-spacing: 0.5px; }
+        .brand-text p { margin: 3px 0 0 0; font-size: 0.9rem; color: #555; text-transform: uppercase; }
 
-        /* --- 3. NAVIGATION MENU --- */
+        /* --- 3. MENU NAVIGASI MELEKAT (Sticky Nav) --- */
         nav {
-            background-color: var(--primary);
+            background-color: var(--secondary);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
         .nav-container {
             max-width: 1200px;
@@ -67,175 +73,219 @@
         nav a {
             color: #ffffff;
             text-decoration: none;
-            padding: 15px 25px;
+            padding: 16px 24px;
             font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
         nav a:hover, nav a.active {
-            background-color: var(--accent-gold);
+            background-color: var(--bali-gold);
             color: var(--primary);
         }
 
-        /* --- 4. HERO BANNER UTAMA (Menggunakan image_a8003f.png) --- */
-        .hero {
+        /* --- 4. HERO BANNER MEGAH (Menggunakan image_a8003f.png) --- */
+        .hero-banner {
             position: relative;
             width: 100%;
-            height: 450px;
+            height: 500px;
             background: url('image_a8003f.png') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        /* Efek Gelap Transparan di Atas Gambar agar Teks Terbaca */
-        .hero::before {
+        /* Lapisan Gradasi Mewah Kombinasi Navy & Transparan */
+        .hero-banner::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 37, 64, 0.55);
+            background: linear-gradient(to bottom, rgba(11, 37, 69, 0.7), rgba(11, 37, 69, 0.4));
         }
-        .hero-content {
+        /* Ornamen Garis Bingkai Emas Atas/Bawah Banner Khas Pura */
+        .hero-banner::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 8px;
+            background: repeating-linear-gradient(45deg, var(--bali-gold), var(--bali-gold) 10px, #000 10px, #000 20px);
+        }
+        .hero-inner {
             position: relative;
             z-index: 2;
             text-align: center;
             color: #ffffff;
             padding: 0 20px;
         }
-        .hero-content h2 {
-            font-size: 2.8rem;
+        .hero-inner h2 {
+            font-size: 3.2rem;
             margin: 0;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-            border-bottom: 4px solid var(--accent-gold);
-            display: inline-block;
-            padding-bottom: 10px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            font-weight: 800;
         }
-        .hero-content p {
-            font-size: 1.3rem;
+        .hero-inner p {
+            font-size: 1.4rem;
             margin: 15px 0 0 0;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-            color: #f0f0f0;
+            color: var(--bali-gold);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+            font-weight: 500;
         }
 
-        /* --- 5. MAIN CONTENT AREA --- */
-        .container {
+        /* --- 5. PANEL STATISTIK SEKOLAH (Fakta Riil Kurikulum) --- */
+        .stats-bar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin: -40px auto 40px auto;
+            position: relative;
+            z-index: 5;
+            max-width: 1000px;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 20px;
+            text-align: center;
+            border-top: 4px solid var(--bali-red);
+        }
+        .stat-item h3 { margin: 0; font-size: 2.2rem; color: var(--bali-red); }
+        .stat-item p { margin: 5px 0 0 0; font-size: 0.9rem; font-weight: 600; color: #555; }
+
+        /* --- 6. UTAMA CONTAINER AREA --- */
+        .wrapper {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: auto;
             padding: 0 20px;
-            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        @media (min-width: 992px) {
+            .wrapper { grid-template-columns: 2fr 1fr; }
         }
 
         /* Sambutan Kepala Sekolah */
-        .welcome-section {
+        .main-card {
             background: #ffffff;
             border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border-left: 6px solid var(--primary);
+            margin-bottom: 30px;
+        }
+        .welcome-block {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .welcome-block { flex-direction: row; align-items: flex-start; }
+        }
+        .headmaster-frame { text-align: center; flex-shrink: 0; }
+        .headmaster-frame img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--bali-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .headmaster-frame p { margin: 10px 0 0 0; font-weight: bold; font-size: 0.85rem; color: var(--primary); }
+
+        .welcome-content h2 { margin-top: 0; color: var(--primary); font-size: 1.8rem; }
+        .welcome-content h2::after {
+            content: ''; display: block; width: 80px; height: 3px; background: var(--bali-red); margin-top: 8px;
+        }
+
+        /* Kotak Visi Misi Autentik */
+        .vision-mission-box {
+            background: linear-gradient(135deg, #fffcf4, #fff8e7);
+            border: 2px dashed var(--bali-gold);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        .vision-mission-box h3 { margin-top: 0; color: var(--bali-red); font-size: 1.3rem; text-transform: uppercase; }
+
+        /* --- SIDEBAR WIDGETS --- */
+        .sidebar { display: flex; flex-direction: column; gap: 30px; }
+        .widget {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--secondary);
+        }
+        .widget-title {
+            margin-top: 0; font-size: 1.2rem; color: var(--primary);
+            border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .widget-title span { color: var(--bali-red); font-size: 1.4rem; }
+        
+        .announcement-list { list-style: none; padding: 0; margin: 0; }
+        .announcement-list li { padding: 12px 0; border-bottom: 1px dashed #eee; font-size: 0.95rem; }
+        .announcement-list li:last-child { border-bottom: none; }
+        .announcement-list a { color: var(--text-dark); text-decoration: none; font-weight: 500; }
+        .announcement-list a:hover { color: var(--bali-red); text-decoration: underline; }
+        .date-badge { display: inline-block; background: #eee; color: #333; font-size: 0.75rem; padding: 2px 6px; border-radius: 3px; margin-right: 8px; font-weight: bold; }
+
+        /* --- 7. GRID PORTAL KEARIFAN LOKAL BALI --- */
+        .culture-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .section-headline {
+            text-align: center; margin-bottom: 40px; color: var(--primary);
+            font-size: 2rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .section-headline span { color: var(--bali-red); }
+        
+        .culture-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
-            align-items: center;
-            border-top: 5px solid var(--accent-gold);
         }
-        @media(min-width: 768px) {
-            .welcome-section { grid-template-columns: 200px 1fr; }
+        @media (min-width: 768px) {
+            .culture-grid { grid-template-columns: repeat(3, 1fr); }
         }
-        .kepsek-box { text-align: center; }
-        .kepsek-box img {
-            width: 170px;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .culture-card {
+            background: #ffffff; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04); border-bottom: 4px solid var(--primary);
+            transition: all 0.3s ease;
         }
-        .kepsek-box p { margin: 8px 0 0 0; font-weight: bold; font-size: 0.9rem; }
-        
-        .welcome-text h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.8rem;
-            position: relative;
+        .culture-card:hover { transform: translateY(-5px); border-bottom-color: var(--bali-gold); }
+        .culture-card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white; padding: 15px 20px; font-weight: 700; font-size: 1.1rem;
+            display: flex; align-items: center; gap: 10px;
         }
-        /* Garis bawah ornamen kecil */
-        .welcome-text h3::after {
-            content: ''; display: block; width: 60px; height: 3px; background: var(--accent-red); margin-top: 8px;
-        }
+        .culture-card-body { padding: 20px; font-size: 0.95rem; }
 
-        /* --- 6. NEWS & CULTURE GRID (Gaya SMAN 1 Bdg + Bali) --- */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 30px 0;
-            color: var(--primary);
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .section-title span { color: var(--accent-gold); }
-
-        .grid-portal {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-        @media(min-width: 768px) {
-            .grid-portal { grid-template-columns: repeat(3, 1fr); }
-        }
-        
-        .portal-card {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border-bottom: 4px solid var(--primary);
-        }
-        .portal-card:hover {
-            transform: translateY(-5px);
-            border-bottom-color: var(--accent-gold);
-        }
-        .card-header-bali {
-            background: linear-gradient(135deg, var(--primary), var(--accent-red));
-            color: #ffffff;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .card-body { padding: 20px; }
-        .card-body ul { padding-left: 20px; margin: 0; }
-        .card-body li { margin-bottom: 10px; }
-        .card-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
-        .card-body a:hover { color: var(--accent-red); text-decoration: underline; }
-
-        /* --- 7. FOOTER BERGAYA TRADISIONAL MODERN --- */
+        /* --- 8. FOOTER DETIL --- */
         footer {
             background-color: var(--primary);
             color: #ffffff;
-            padding: 40px 20px;
+            padding: 50px 20px 20px 20px;
             margin-top: 80px;
-            border-top: 5px solid var(--accent-gold);
+            border-top: 6px solid var(--bali-gold);
         }
-        .footer-container {
+        .footer-grid {
             max-width: 1200px;
             margin: auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 40px;
         }
-        @media(min-width: 768px) {
-            .footer-container { grid-template-columns: 2fr 1fr; }
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 2fr 1fr; }
         }
-        .footer-about h4 { margin-top: 0; color: var(--accent-gold); font-size: 1.3rem; }
-        .footer-links h4 { margin-top: 0; color: var(--accent-gold); font-size: 1.3rem; }
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-            color: #bbb;
+        .footer-logo-side h3 { margin: 0 0 15px 0; color: var(--bali-gold); font-size: 1.4rem; }
+        .footer-logo-side p { margin: 5px 0; font-size: 0.95rem; color: #ddd; }
+        .footer-links-side h4 { margin: 0 0 15px 0; color: var(--bali-gold); font-size: 1.2rem; }
+        .footer-links-side ul { list-style: none; padding: 0; margin: 0; }
+        .footer-links-side li { margin-bottom: 10px; }
+        .footer-links-side a { color: #ccc; text-decoration: none; font-size: 0.95rem; }
+        .footer-links-side a:hover { color: white; text-decoration: underline; }
+        
+        .footer-copyright {
+            text-align: center; margin-top: 50px; padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: #aaa;
         }
     </style>
 </head>
@@ -243,18 +293,20 @@
 
     <div class="top-bar">
         <div class="top-bar-info">
-            <span>📞 (0361) XXXXXX</span>
-            <span>✉️ info@sdn3kesiman.sch.id</span>
+            <span><i>📞</i> (0361) 462716</span>
+            <span><i>✉️</i> admin@sdn3kesiman.sch.id</span>
         </div>
-        <div>NPSN: XXXXXXXX</div>
+        <div>NPSN: 50103218</div>
     </div>
 
     <header>
-        <div class="header-brand">
-            <img src="logo.jpeg" alt="Logo SDN 3 Kesiman">
-            <div class="header-text">
-                <h1>SD NEGERI 3 KESIMAN</h1>
-                <p>Dinas Pendidikan Kepemudaan dan Olahraga Kota Denpasar</p>
+        <div class="header-container">
+            <div class="brand-box">
+                <img src="logo.jpeg" alt="Logo Resmi SDN 3 Kesiman">
+                <div class="brand-text">
+                    <h1>SD NEGERI 3 KESIMAN</h1>
+                    <p>Dinas Pendidikan Kepemudaan dan Olahraga Kota Denpasar</p>
+                </div>
             </div>
         </div>
     </header>
@@ -263,91 +315,143 @@
         <div class="nav-container">
             <a href="#" class="active">Beranda</a>
             <a href="#">Profil Sekolah</a>
-            <a href="#">Kurikulum</a>
+            <a href="#">Kurikulum Satuan</a>
             <a href="#">Kearifan Lokal</a>
-            <a href="#">Galeri</a>
+            <a href="#">Fasilitas</a>
             <a href="#">Hubungi Kami</a>
         </div>
     </nav>
 
-    <div class="hero">
-        <div class="hero-content">
+    <div class="hero-banner">
+        <div class="hero-inner">
             <h2>Rahajeng Rawuh</h2>
-            <p>Di Website Resmi SD Negeri 3 Kesiman, Denpasar - Bali</p>
+            <p>Membentuk Generasi Unggul, Cerdas, dan Berakar pada Budaya Luhur Bali</p>
         </div>
     </div>
 
-    <div class="container">
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>413</h3>
+            <p>Peserta Didik Aktif</p>
+        </div>
+        <div class="stat-item">
+            <h3>12</h3>
+            <p>Rombongan Belajar (Rombel)</p>
+        </div>
+        <div class="stat-item">
+            <h3>1.000+</h3>
+            <p>Koleksi Buku Perpustakaan ICT</p>
+        </div>
+    </div>
+
+    <div class="wrapper">
         
-        <div class="welcome-section">
-            <div class="kepsek-box">
-                <img src="image_a7fc23.png" alt="Desak Nyoman Sari, S.Pd.SD">
-                <p>Desak Nyoman Sari, S.Pd.SD</p>
+        <div>
+            <div class="main-card">
+                <div class="welcome-block">
+                    <div class="headmaster-frame">
+                        <img src="image_a7fc23.png" alt="Desak Nyoman Sari, S.Pd.SD">
+                        <p>Desak Nyoman Sari, S.Pd.SD<br><span style="font-weight:normal;color:#777;">Kepala Sekolah</span></p>
+                    </div>
+                    <div class="welcome-content">
+                        <h2>Sambutan Kepala Satuan Pendidikan</h2>
+                        <p>Om Swastyastu,</p>
+                        <p>Puji syukur kami panjatkan ke hadirat Tuhan Yang Maha Esa/Ida Sang Hyang Widhi Wasa atas terwujudnya media komunikasi digital resmi SD Negeri 3 Kesiman. Website ini dirancang mengadopsi standar sistem informasi modern untuk menyajikan transparansi kegiatan belajar-mengajar bagi seluruh stakeholder pendidikan.</p>
+                        <p>Dengan mengacu penuh pada peraturan perundangan, kami berkomitmen melaksanakan Dokumen Kurikulum terbaru yang diintegrasikan secara kontekstual dengan nilai budaya lokal Bali guna menuntun anak didik mencapai kecemerlangan akademik dan keluhuran budi pekerti.</p>
+                        <p>Om Shanti, Shanti, Shanti, Om.</p>
+                    </div>
+                </div>
             </div>
-            <div class="welcome-text">
-                <h3>Sambutan Kepala Satuan Pendidikan</h3>
-                <p>Om Swastyastu,</p>
-                <p>Selamat datang di website resmi SD Negeri 3 Kesiman, Kota Denpasar. Platform digital ini kami dedikasikan sebagai jendela informasi utama, transparansi tata kelola, serta wadah komunikasi interaktif antara lingkungan sekolah, orang tua, alumni, dan masyarakat luas.</p>
-                <p>Berlandaskan nilai-nilai luhur dan komitmen menyajikan pendidikan berkualitas, kami mengimplementasikan Kurikulum Satuan Pendidikan terbaru demi mencetak generasi emas yang cerdas, berkarakter mulia, serta senantiasa menjunjung tinggi nilai budaya daerah di era modern.</p>
-                <p>Om Shanti, Shanti, Shanti, Om.</p>
+
+            <div class="vision-mission-box">
+                <h3>🎯 Visi Sekolah</h3>
+                <p style="font-size: 1.2rem; font-weight: 700; color: var(--primary); font-style: italic; margin-left: 10px;">
+                    “ Pendidikan yang Bermakna dan Berkarakter untuk Membentuk Generasi Unggul ”
+                </p>
+                
+                <h3 style="margin-top: 25px;">📌 Misi Utama</h3>
+                <ol style="padding-left: 20px; font-size: 0.95rem;">
+                    <li style="margin-bottom: 8px;">Menciptakan Lingkungan Pembelajaran yang Inovatif dan Berpusat pada Siswa.</li>
+                    <li style="margin-bottom: 8px;">Menanamkan Nilai-Nilai Karakter Melalui Keteladanan dan Pembiasaan.</li>
+                    <li style="margin-bottom: 8px;">Meningkatkan kemampuan berkomunikasi secara efektif, baik lisan maupun tulisan, serta kemampuan mendengarkan dan memahami orang lain.</li>
+                    <li style="margin-bottom: 8px;">Mengembangkan kompetensi Guru dan Tenaga Kependidikan (GTK).</li>
+                </ol>
             </div>
         </div>
 
-        <h2 class="section-title">Informasi & <span>Aktivitas Sekolah</span></h2>
-        
-        <div class="grid-portal">
-            <div class="portal-card">
-                <div class="card-header-bali">📖 Kurikulum & Akademik</div>
-                <div class="card-body">
-                    <p>Penerapan Dokumen Kurikulum TA 2025/2026 secara konsisten didukung penuh oleh guru kompeten untuk mencapai visi misi pendidikan unggul.</p>
-                    <ul>
-                        <li><a href="#">- Kalender Akademik</a></li>
-                        <li><a href="#">- Struktur Organisasi Komite</a></li>
-                    </ul>
-                </div>
+        <div class="sidebar">
+            <div class="widget">
+                <h3 class="widget-title">Pengumuman <span>📢</span></h3>
+                <ul class="announcement-list">
+                    <li>
+                        <span class="date-badge">06 Jul</span>
+                        <a href="#">Sosialisasi Implementasi Kurikulum TA 2025/2026</a>
+                    </li>
+                    <li>
+                        <span class="date-badge">18 Jun</span>
+                        <a href="#">Pembentukan Susunan Tim Pengembang Kurikulum Baru</a>
+                    </li>
+                    <li>
+                        <span class="date-badge">15 Jun</span>
+                        <a href="#">Penerimaan Peserta Didik Baru Kelas I Rombel Terbatas</a>
+                    </li>
+                </ul>
             </div>
 
-            <div class="portal-card">
-                <div class="card-header-bali">📢 Pengumuman Terbaru</div>
-                <div class="card-body">
-                    <ul>
-                        <li><a href="#"><b>01 Jul</b> - Informasi Pengambilan Rapor</a></li>
-                        <li><a href="#"><b>15 Jun</b> - Persiapan Tahun Ajaran Baru</a></li>
-                        <li><a href="#"><b>05 Jun</b> - Agenda Rapat Kerja Komite</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="portal-card">
-                <div class="card-header-bali">🌸 Penguatan Seni & Budaya</div>
-                <div class="card-body">
-                    <p>Integrasi kearifan lokal Bali dalam kegiatan penunjang akademik untuk melestarikan tradisi luhur sejak dini.</p>
-                    <ul>
-                        <li><a href="#">- Ekstrakurikuler Tari Bali</a></li>
-                        <li><a href="#">- Pembelajaran Nyurat Aksara Bali</a></li>
-                    </ul>
-                </div>
+            <div class="widget">
+                <h3 class="widget-title">Program Sekolah <span>✨</span></h3>
+                <ul class="announcement-list" style="font-weight: 600;">
+                    <li style="color: var(--bali-red);">🌟 GELIS MANIS <span style="font-weight:normal; font-size:0.85rem; display:block; color:#666;">Gerakan Literasi Sekolah Membaca & Menulis</span></li>
+                    <li style="color: var(--secondary);">🛡️ 7 KAIH <span style="font-weight:normal; font-size:0.85rem; display:block; color:#666;">7 Kebiasaan Anak Indonesia Hebat (Pembiasaan 15 Menit Membaca)</span></li>
+                </ul>
             </div>
         </div>
 
+    </div>
+
+    <div class="culture-section">
+        <h2 class="section-headline">Integrasi <span>Kearifan Lokal Bali</span></h2>
+        <div class="culture-grid">
+            <div class="culture-card">
+                <div class="culture-card-header">🌸 Muatan Lokal Bahasa Bali</div>
+                <div class="culture-card-body">
+                    <p>Sesuai dengan Peraturan Gubernur Bali Nomor 20 Tahun 2013, sekolah menyelenggarakan pembelajaran membaca, menulis, serta penumbuhan apresiasi terhadap sastra daerah sejak dini.</p>
+                </div>
+            </div>
+            <div class="culture-card">
+                <div class="culture-card-header">🔱 Seni Tari & Komunitas Lukis</div>
+                <div class="culture-card-body">
+                    <p>Mengembangkan potensi keunggulan lokal melalui ekstrakurikuler terarah untuk melatih kelenturan estetika gerak tari Bali serta kreativitas seni lukis anak didik.</p>
+                </div>
+            </div>
+            <div class="culture-card">
+                <div class="culture-card-header">💻 Literasi & Teknologi Global</div>
+                <div class="culture-card-body">
+                    <p>Mendukung pembelajaran global yang seimbang dengan fasilitas ruang perpustakaan berbasis ICT lengkap (Chrome Book & proyektor multimedia).</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-about">
-                <h4>SD NEGERI 3 KESIMAN</h4>
-                <p>Lembaga pendidikan dasar negeri yang berkomitmen mencetak insan cerdas, religius, berbudaya, serta kompetitif di Kota Denpasar, Bali.</p>
-                <p>📍 Alamat: Jalan Bakung No. 16 Tohpati, Kesiman Kertalangu, Kec. Denpasar Timur, Kota Denpasar, Bali</p>
+        <div class="footer-grid">
+            <div class="footer-logo-side">
+                <h3>SD NEGERI 3 KESIMAN</h3>
+                <p>Lembaga satuan pendidikan dasar negeri yang berkomitmen mencetak insan cerdas, religius, berbudaya luhur, serta siap bersaing secara global di Kota Denpasar.</p>
+                <p style="margin-top: 15px;">📍 <strong>Alamat:</strong> Jalan Bakung No. 16 Tohpati, Kesiman Kertalangu, Kec. Denpasar Timur, Kota Denpasar, Bali</p>
             </div>
-            <div class="footer-links">
-                <h4>Tautan Cepat</h4>
-                <p><a href="#" style="color: #fff; text-decoration: none;">› Peta Lokasi Sekolah</a></p>
-                <p><a href="#" style="color: #fff; text-decoration: none;">› Kontak Admin</a></p>
-                <p><a href="#" style="color: #fff; text-decoration: none;">› Galeri Kegiatan</a></p>
+            <div class="footer-links-side">
+                <h4>Tautan Navigasi</h4>
+                <ul>
+                    <li><a href="#">› Peta Lokasi / Denah Sekolah</a></li>
+                    <li><a href="#">› Profil Dewan Guru</a></li>
+                    <li><a href="#">› Galeri Dokumentasi Siswa</a></li>
+                    <li><a href="#">› Portal Kurikulum Merdeka</a></li>
+                </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SD Negeri 3 Kesiman. All Rights Reserved. | Terinspirasi Desain Portal Modern</p>
+        <div class="footer-copyright">
+            <p>&copy; 2026 SD Negeri 3 Kesiman. All Rights Reserved. | Terinspirasi Desain Premium Portal Pendidikan</p>
         </div>
     </footer>
 
