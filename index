@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi SMA Negeri 1 Sukamaju</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background-color: #003366; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #333; color: white; display: flex; justify-content: center; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        .container { padding: 20px; max-width: 1000px; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px; border-radius: 8px; }
+        footer { text-align: center; padding: 20px; background-color: #003366; color: white; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Selamat Datang di SMA Negeri 1 Sukamaju</h1>
+        <p>Unggul dalam Prestasi, Berkarakter, dan Berbudaya</p>
+    </header>
+
+    <nav>
+        <a href="#">Beranda</a>
+        <a href="#">Profil Sekolah</a>
+        <a href="#">Fasilitas</a>
+        <a href="#">Kontak</a>
+    </nav>
+
+    <div class="container">
+        <h2>Sambutan Kepala Sekolah</h2>
+        <p>Salam sejahtera untuk kita semua. Selamat datang di website resmi SMA Negeri 1 Sukamaju. Website ini hadir sebagai media informasi, komunikasi, dan silaturahmi antara sekolah, siswa, orang tua, dan masyarakat luas...</p>
+        
+        <hr>
+        
+        <h2>Berita Terbaru</h2>
+        <h3>1. Penerimaan Peserta Didik Baru (PPDB) Tahun Ajaran Ini</h3>
+        <p>Pendaftaran akan dibuka mulai bulan depan. Informasi alur dan syarat pendaftaran silakan hubungi panitia lewat Google Form yang disediakan...</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SMA Negeri 1 Sukamaju. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
